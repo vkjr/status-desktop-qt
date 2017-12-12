@@ -154,7 +154,29 @@
 
                                                ;;:source-map "app/prod/js/test.js.map"
                                                :pretty-print true
-                                               :output-wrapper true}}}}
+                                               :output-wrapper true}}
+                       :prod-qt {:source-paths ["src_front" "src_front_profile/prod-qt"
+                                                   "../status-react/src"]
+                                    :incremental true
+                                    :jar true
+                                    :assert true
+                                    :compiler {:output-to     "index.desktop.js"
+                                               :main          "status-desktop-front.init"
+                                               :static-fns    true ;???
+                                               ;:externs ["app/prod/js/externs_front.js"]
+                                               :warnings true
+                                               :optimize-constants true
+                                               :optimizations :advanced
+                                               :closure-defines {"goog.DEBUG" false}
+                                               :output-dir "app/prod-qt"
+
+
+                                               :elide-asserts true
+                                               :pretty-print true
+                                               :output-wrapper true
+                                               }}
+
+                       }}
   :figwheel {:http-server-root "public"
              :ring-handler figwheel-middleware/app
              :server-port 3449})
